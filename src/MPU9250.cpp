@@ -1020,7 +1020,7 @@ int MPU9250::readRegisters(uint8_t subAddress, uint8_t count, uint8_t* dest){
   else{
     _i2c->beginTransmission(_address); // open the device
     _i2c->write(subAddress); // specify the starting register address
-    _i2c->endTransmission(false);
+    _i2c->endTransmission();
     _numBytes = _i2c->requestFrom(_address, count); // specify the number of bytes to receive
     if (_numBytes == count) {
       for(uint8_t i = 0; i < count; i++){ 
